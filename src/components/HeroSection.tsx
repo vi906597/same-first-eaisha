@@ -125,6 +125,15 @@ export default function HeroSection() {
           ))}
         </motion.div>
       </motion.div>
+
+      <TermsModal
+        open={termsOpen}
+        onClose={() => setTermsOpen(false)}
+        onAccept={() => {
+          alert("Welcome to Zypeus! Let's start your SIP journey.");
+          setTermsOpen(false);
+        }}
+      />
     </section>
   );
 }
