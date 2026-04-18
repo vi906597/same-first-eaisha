@@ -10,8 +10,8 @@ export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "Zypeus — Smart SIP & Mutual Fund Platform" },
-      { name: "description", content: "Zypeus se mutual funds mein SIP start karo. Smart investing, top funds, real-time portfolio tracking." },
+      { title: "Zypeus — Smart SIP & Mutual Fund Investment Platform" },
+      { name: "description", content: "Start your mutual fund SIP with Zypeus. Smart investing, top performing funds, and real-time portfolio tracking — all in one place." },
     ],
   }),
 });
