@@ -1,4 +1,6 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
+import TermsModal from "./TermsModal";
 
 const funds = [
   { name: "Axis Bluechip Fund", category: "Large Cap", returns1y: "18.4%", returns3y: "15.2%", risk: "Low" },
@@ -17,6 +19,8 @@ const riskColor: Record<string, string> = {
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 export default function TopFundsSection() {
+  const [selectedFund, setSelectedFund] = useState<string | null>(null);
+
   return (
     <section className="py-24 px-6 bg-background">
       <div className="max-w-5xl mx-auto">
@@ -65,6 +69,7 @@ export default function TopFundsSection() {
                   whileHover={{ scale: 1.06 }}
                   whileTap={{ scale: 0.95 }}
                   transition={{ type: "spring", stiffness: 300, damping: 18 }}
+                  onClick={() => setSelectedFund(fund.name)}
                   className="rounded-full px-5 py-2 text-xs font-semibold text-primary-foreground shrink-0"
                   style={{ background: "var(--gradient-cta)" }}
                 >
@@ -75,6 +80,16 @@ export default function TopFundsSection() {
           ))}
         </div>
       </div>
+
+      <TermsModal
+        open={selectedFund !== null}
+        fundName={selectedFund ?? undefined}
+        onClose={() => setSelectedFund(null)}
+        onAccept={() => {
+          alert(`Proceeding with investment in ${selectedFund}`);
+          setSelectedFund(null);
+        }}
+      />
     </section>
   );
 }
