@@ -1,22 +1,47 @@
 import { motion } from "framer-motion";
 
+const EASE = [0.22, 1, 0.36, 1] as const;
+
 const container = {
   hidden: {},
-  show: { transition: { staggerChildren: 0.15 } },
+  show: { transition: { staggerChildren: 0.12, delayChildren: 0.1 } },
 };
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const } },
+  hidden: { opacity: 0, y: 24, filter: "blur(8px)" },
+  show: {
+    opacity: 1,
+    y: 0,
+    filter: "blur(0px)",
+    transition: { duration: 0.9, ease: EASE },
+  },
 };
 
 export default function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
-      {/* Gradient orb */}
-      <div
+      {/* Animated gradient orb */}
+      <motion.div
         className="pointer-events-none absolute inset-0"
         style={{ background: "var(--gradient-hero-bg)" }}
+        animate={{ opacity: [0.6, 1, 0.6] }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+      />
+
+      {/* Floating subtle blobs */}
+      <motion.div
+        aria-hidden
+        className="pointer-events-none absolute -top-32 -left-32 w-96 h-96 rounded-full opacity-30 blur-3xl"
+        style={{ background: "var(--gradient-cta)" }}
+        animate={{ x: [0, 40, 0], y: [0, 30, 0] }}
+        transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <motion.div
+        aria-hidden
+        className="pointer-events-none absolute -bottom-32 -right-32 w-96 h-96 rounded-full opacity-20 blur-3xl"
+        style={{ background: "var(--gradient-cta)" }}
+        animate={{ x: [0, -30, 0], y: [0, -40, 0] }}
+        transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
       />
 
       <motion.div
@@ -43,23 +68,31 @@ export default function HeroSection() {
           variants={fadeUp}
           className="mt-6 text-lg text-muted-foreground max-w-xl mx-auto leading-relaxed"
         >
-          Apna paisa smartly invest karo — SIP ke through mutual funds mein.
-          Har mahine thoda thoda, future mein bahut zyada.
+          Invest your money smartly through SIPs in top mutual funds.
+          A little every month, a lot in the future.
         </motion.p>
 
-        <motion.div variants={fadeUp} className="mt-10 flex items-center justify-center gap-4">
-          <button
-            className="rounded-full px-10 py-3.5 text-sm font-semibold text-primary-foreground transition-all duration-300 hover:scale-105"
+        <motion.div variants={fadeUp} className="mt-10 flex items-center justify-center gap-4 flex-wrap">
+          <motion.button
+            whileHover={{ scale: 1.04, y: -2 }}
+            whileTap={{ scale: 0.97 }}
+            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            className="rounded-full px-10 py-3.5 text-sm font-semibold text-primary-foreground"
             style={{
               background: "var(--gradient-cta)",
               boxShadow: "var(--shadow-cta)",
             }}
           >
             Start SIP Now
-          </button>
-          <button className="rounded-full border border-border bg-background px-8 py-3.5 text-sm font-medium text-foreground transition-all duration-300 hover:bg-secondary">
+          </motion.button>
+          <motion.button
+            whileHover={{ scale: 1.04, y: -2 }}
+            whileTap={{ scale: 0.97 }}
+            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            className="rounded-full border border-border bg-background px-8 py-3.5 text-sm font-medium text-foreground hover:bg-secondary"
+          >
             Learn More
-          </button>
+          </motion.button>
         </motion.div>
 
         {/* Animated counter chips */}
@@ -69,13 +102,16 @@ export default function HeroSection() {
         >
           {[
             { label: "Active SIPs", value: "2.4L+" },
-            { label: "AUM", value: "₹1200 Cr" },
-            { label: "Avg Returns", value: "14.2%" },
-          ].map((stat) => (
+            { label: "Assets Under Management", value: "₹1200 Cr" },
+            { label: "Avg. Annual Returns", value: "14.2%" },
+          ].map((stat, i) => (
             <motion.div
               key={stat.label}
-              whileHover={{ scale: 1.05, y: -4 }}
-              className="rounded-2xl border border-border bg-card px-6 py-4 text-center"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8 + i * 0.12, duration: 0.7, ease: EASE }}
+              whileHover={{ scale: 1.06, y: -6 }}
+              className="rounded-2xl border border-border bg-card px-6 py-4 text-center transition-shadow"
               style={{ boxShadow: "var(--shadow-card)" }}
             >
               <p className="text-2xl font-bold text-primary">{stat.value}</p>
