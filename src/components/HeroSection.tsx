@@ -1,4 +1,6 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
+import TermsModal from "./TermsModal";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -18,6 +20,8 @@ const fadeUp = {
 };
 
 export default function HeroSection() {
+  const [termsOpen, setTermsOpen] = useState(false);
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
       {/* Animated gradient orb */}
@@ -77,6 +81,7 @@ export default function HeroSection() {
             whileHover={{ scale: 1.04, y: -2 }}
             whileTap={{ scale: 0.97 }}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            onClick={() => setTermsOpen(true)}
             className="rounded-full px-10 py-3.5 text-sm font-semibold text-primary-foreground"
             style={{
               background: "var(--gradient-cta)",
