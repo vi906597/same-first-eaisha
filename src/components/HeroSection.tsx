@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import TermsModal from "./TermsModal";
+import InvestmentConfirmation from "./InvestmentConfirmation";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
