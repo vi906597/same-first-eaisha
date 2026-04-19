@@ -58,9 +58,10 @@ export default function HeroSection() {
       >
         <motion.h1
           variants={fadeUp}
-          className="text-7xl md:text-8xl font-bold tracking-tight text-primary"
+          className="text-7xl md:text-8xl font-bold tracking-tight"
         >
-          Zypeus
+          <span className="text-foreground">Zy</span>
+          <span className="text-primary">peus</span>
         </motion.h1>
 
         <motion.p
