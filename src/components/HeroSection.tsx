@@ -25,6 +25,7 @@ const fadeUp = {
 export default function HeroSection() {
   const [termsOpen, setTermsOpen] = useState(false);
   const [confirmOpen, setConfirmOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <section className="relative min-h-screen flex items-start justify-center overflow-hidden bg-background pt-32 md:pt-40 pb-16">
