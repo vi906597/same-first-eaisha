@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Menu } from "lucide-react";
 import TermsModal from "./TermsModal";
 import InvestmentConfirmation from "./InvestmentConfirmation";
+import SideMenu from "./SideMenu";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
