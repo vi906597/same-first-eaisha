@@ -50,10 +50,10 @@ export default function HeroSection() {
             SEBI Registered
           </span>
           <button
-            aria-label="More options"
-            className="w-9 h-9 rounded-full flex items-center justify-center text-foreground hover:bg-secondary transition-colors"
+            aria-label="Open menu"
+            className="w-11 h-11 rounded-full flex items-center justify-center text-foreground hover:bg-secondary transition-colors"
           >
-            <MoreVertical size={18} />
+            <Menu size={28} strokeWidth={2.5} />
           </button>
         </div>
       </motion.div>
