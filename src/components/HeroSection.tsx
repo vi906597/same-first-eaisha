@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Menu } from "lucide-react";
 import TermsModal from "./TermsModal";
 import InvestmentConfirmation from "./InvestmentConfirmation";
+import SideMenu from "./SideMenu";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -24,6 +25,7 @@ const fadeUp = {
 export default function HeroSection() {
   const [termsOpen, setTermsOpen] = useState(false);
   const [confirmOpen, setConfirmOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <section className="relative min-h-screen flex items-start justify-center overflow-hidden bg-background pt-32 md:pt-40 pb-16">
@@ -50,6 +52,7 @@ export default function HeroSection() {
             SEBI Registered
           </span>
           <button
+            onClick={() => setMenuOpen(true)}
             aria-label="Open menu"
             className="w-11 h-11 rounded-full flex items-center justify-center text-foreground hover:bg-secondary transition-colors"
           >
@@ -175,6 +178,8 @@ export default function HeroSection() {
         fundName="Zypeus Smart SIP Starter"
         onClose={() => setConfirmOpen(false)}
       />
+
+      <SideMenu open={menuOpen} onClose={() => setMenuOpen(false)} />
     </section>
   );
 }
