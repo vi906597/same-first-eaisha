@@ -25,7 +25,30 @@ export default function HeroSection() {
   const [confirmOpen, setConfirmOpen] = useState(false);
 
   return (
-    <section className="relative min-h-screen flex items-start justify-center overflow-hidden bg-background pt-24 md:pt-32 pb-16">
+    <section className="relative min-h-screen flex items-start justify-center overflow-hidden bg-background pt-32 md:pt-40 pb-16">
+      {/* Top brand bar */}
+      <motion.div
+        initial={{ opacity: 0, y: -16 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, ease: EASE }}
+        className="absolute top-0 left-0 right-0 z-20 px-6 py-5 flex items-center justify-between"
+      >
+        <div className="flex items-center gap-2">
+          <div
+            className="w-8 h-8 rounded-xl flex items-center justify-center text-primary-foreground font-bold text-sm"
+            style={{ background: "var(--gradient-cta)", boxShadow: "var(--shadow-cta)" }}
+          >
+            Z
+          </div>
+          <span className="font-semibold text-foreground text-base tracking-tight">
+            Zypeus
+          </span>
+        </div>
+        <span className="text-[10px] tracking-[0.25em] uppercase text-muted-foreground hidden sm:inline">
+          SEBI Registered
+        </span>
+      </motion.div>
+
       {/* Animated gradient orb */}
       <motion.div
         className="pointer-events-none absolute inset-0"
