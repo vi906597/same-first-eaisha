@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { MoreVertical } from "lucide-react";
+import { Menu } from "lucide-react";
 import TermsModal from "./TermsModal";
 import InvestmentConfirmation from "./InvestmentConfirmation";
 
