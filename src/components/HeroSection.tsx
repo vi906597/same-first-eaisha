@@ -56,20 +56,20 @@ export default function HeroSection() {
         initial="hidden"
         animate="show"
       >
+        <motion.p
+          variants={fadeUp}
+          className="text-sm tracking-[0.35em] uppercase text-muted-foreground"
+        >
+          Smart SIP &middot; Mutual Funds &middot; Wealth Growth
+        </motion.p>
+
         <motion.h1
           variants={fadeUp}
-          className="text-7xl md:text-8xl font-bold tracking-tight"
+          className="mt-4 text-7xl md:text-8xl font-bold tracking-tight"
         >
           <span className="text-foreground">Zy</span>
           <span className="text-primary">peus</span>
         </motion.h1>
-
-        <motion.p
-          variants={fadeUp}
-          className="mt-4 text-sm tracking-[0.35em] uppercase text-muted-foreground"
-        >
-          Smart SIP &middot; Mutual Funds &middot; Wealth Growth
-        </motion.p>
 
         <motion.p
           variants={fadeUp}
