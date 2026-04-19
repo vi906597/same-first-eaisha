@@ -52,6 +52,7 @@ export default function HeroSection() {
             SEBI Registered
           </span>
           <button
+            onClick={() => setMenuOpen(true)}
             aria-label="Open menu"
             className="w-11 h-11 rounded-full flex items-center justify-center text-foreground hover:bg-secondary transition-colors"
           >
