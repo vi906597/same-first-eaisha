@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { MoreVertical } from "lucide-react";
 import TermsModal from "./TermsModal";
 import InvestmentConfirmation from "./InvestmentConfirmation";
 
@@ -44,9 +45,17 @@ export default function HeroSection() {
             Zypeus
           </span>
         </div>
-        <span className="text-[10px] tracking-[0.25em] uppercase text-muted-foreground hidden sm:inline">
-          SEBI Registered
-        </span>
+        <div className="flex items-center gap-3">
+          <span className="text-[10px] tracking-[0.25em] uppercase text-muted-foreground hidden sm:inline">
+            SEBI Registered
+          </span>
+          <button
+            aria-label="More options"
+            className="w-9 h-9 rounded-full flex items-center justify-center text-foreground hover:bg-secondary transition-colors"
+          >
+            <MoreVertical size={18} />
+          </button>
+        </div>
       </motion.div>
 
       {/* Animated gradient orb */}
