@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import TermsModal from "./TermsModal";
+import InvestmentConfirmation from "./InvestmentConfirmation";
 
 const funds = [
   { name: "Axis Bluechip Fund", category: "Large Cap", returns1y: "18.4%", returns3y: "15.2%", risk: "Low" },
