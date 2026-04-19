@@ -178,6 +178,8 @@ export default function HeroSection() {
         fundName="Zypeus Smart SIP Starter"
         onClose={() => setConfirmOpen(false)}
       />
+
+      <SideMenu open={menuOpen} onClose={() => setMenuOpen(false)} />
     </section>
   );
 }
