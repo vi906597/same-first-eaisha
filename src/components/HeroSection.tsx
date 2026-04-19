@@ -132,9 +132,15 @@ export default function HeroSection() {
         open={termsOpen}
         onClose={() => setTermsOpen(false)}
         onAccept={() => {
-          alert("Welcome to Zypeus! Let's start your SIP journey.");
           setTermsOpen(false);
+          setConfirmOpen(true);
         }}
+      />
+
+      <InvestmentConfirmation
+        open={confirmOpen}
+        fundName="Zypeus Smart SIP Starter"
+        onClose={() => setConfirmOpen(false)}
       />
     </section>
   );
