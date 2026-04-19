@@ -25,7 +25,7 @@ export default function HeroSection() {
   const [confirmOpen, setConfirmOpen] = useState(false);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
+    <section className="relative min-h-screen flex items-start justify-center overflow-hidden bg-background pt-24 md:pt-32 pb-16">
       {/* Animated gradient orb */}
       <motion.div
         className="pointer-events-none absolute inset-0"
