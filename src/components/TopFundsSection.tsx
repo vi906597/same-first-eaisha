@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import TermsModal from "./TermsModal";
+import InvestmentConfirmation from "./InvestmentConfirmation";
 
 const funds = [
   { name: "Axis Bluechip Fund", category: "Large Cap", returns1y: "18.4%", returns3y: "15.2%", risk: "Low" },
@@ -20,6 +21,7 @@ const EASE = [0.22, 1, 0.36, 1] as const;
 
 export default function TopFundsSection() {
   const [selectedFund, setSelectedFund] = useState<string | null>(null);
+  const [confirmFund, setConfirmFund] = useState<string | null>(null);
 
   return (
     <section className="py-24 px-6 bg-background">
@@ -86,9 +88,15 @@ export default function TopFundsSection() {
         fundName={selectedFund ?? undefined}
         onClose={() => setSelectedFund(null)}
         onAccept={() => {
-          alert(`Proceeding with investment in ${selectedFund}`);
+          setConfirmFund(selectedFund);
           setSelectedFund(null);
         }}
+      />
+
+      <InvestmentConfirmation
+        open={confirmFund !== null}
+        fundName={confirmFund ?? undefined}
+        onClose={() => setConfirmFund(null)}
       />
     </section>
   );

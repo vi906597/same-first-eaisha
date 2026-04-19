@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import TermsModal from "./TermsModal";
+import InvestmentConfirmation from "./InvestmentConfirmation";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -21,6 +22,7 @@ const fadeUp = {
 
 export default function HeroSection() {
   const [termsOpen, setTermsOpen] = useState(false);
+  const [confirmOpen, setConfirmOpen] = useState(false);
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
@@ -130,9 +132,15 @@ export default function HeroSection() {
         open={termsOpen}
         onClose={() => setTermsOpen(false)}
         onAccept={() => {
-          alert("Welcome to Zypeus! Let's start your SIP journey.");
           setTermsOpen(false);
+          setConfirmOpen(true);
         }}
+      />
+
+      <InvestmentConfirmation
+        open={confirmOpen}
+        fundName="Zypeus Smart SIP Starter"
+        onClose={() => setConfirmOpen(false)}
       />
     </section>
   );
