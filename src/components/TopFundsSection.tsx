@@ -21,6 +21,7 @@ const EASE = [0.22, 1, 0.36, 1] as const;
 
 export default function TopFundsSection() {
   const [selectedFund, setSelectedFund] = useState<string | null>(null);
+  const [confirmFund, setConfirmFund] = useState<string | null>(null);
 
   return (
     <section className="py-24 px-6 bg-background">
