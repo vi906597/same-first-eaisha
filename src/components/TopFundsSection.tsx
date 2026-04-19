@@ -88,9 +88,15 @@ export default function TopFundsSection() {
         fundName={selectedFund ?? undefined}
         onClose={() => setSelectedFund(null)}
         onAccept={() => {
-          alert(`Proceeding with investment in ${selectedFund}`);
+          setConfirmFund(selectedFund);
           setSelectedFund(null);
         }}
+      />
+
+      <InvestmentConfirmation
+        open={confirmFund !== null}
+        fundName={confirmFund ?? undefined}
+        onClose={() => setConfirmFund(null)}
       />
     </section>
   );
