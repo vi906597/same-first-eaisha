@@ -13,16 +13,140 @@ import {
   X,
 } from "lucide-react";
 
+/* ╔══════════════════════════════════════════════════════════════════╗
+   ║                                                                  ║
+   ║   🎨  SITE CONFIG  —  ISSE EDIT KARO, BAAKI KUCH MAT CHHEDO       ║
+   ║                                                                  ║
+   ║   Niche diya hua object hi pura page control karta hai.          ║
+   ║   Brand name, colors, text, sections — sab yahan se badlo.       ║
+   ║   Koi bhi apni website me ye page directly use kar sakta hai.    ║
+   ║                                                                  ║
+   ╚══════════════════════════════════════════════════════════════════╝ */
+
+const SITE_CONFIG = {
+  // ─── Brand ───
+  brand: {
+    name: "Zypeus",
+    logoLetter: "Z",        // logo me dikhne wala letter
+    tagline: "Smart SIP · Mutual Funds · Wealth Growth",
+    badge: "SEBI Registered",
+  },
+
+  // ─── Hero Section ───
+  hero: {
+    eyebrow: "Smart SIP · Mutual Funds · Wealth Growth",
+    titlePart1: "Zy",       // foreground color
+    titlePart2: "peus",     // primary color
+    subtitle:
+      "Invest your money smartly through SIPs in top mutual funds. A little every month, a lot in the future.",
+    primaryCta: "Start SIP Now",
+    secondaryCta: "Learn More",
+    stats: [
+      { label: "Active SIPs", value: "2.4L+" },
+      { label: "Assets Under Management", value: "₹1200 Cr" },
+      { label: "Avg. Annual Returns", value: "14.2%" },
+    ],
+  },
+
+  // ─── Sections on/off ───
+  sections: {
+    features: true,
+    calculator: true,
+    funds: true,
+    howItWorks: true,
+    footer: true,
+  },
+
+  // ─── Features ───
+  features: {
+    title: "Everything you need, in one place",
+    subtitle:
+      "Powerful tools and features designed to make mutual fund investing simple, smart and rewarding for everyone.",
+    items: [
+      { icon: "📈", title: "SIP Calculator", desc: "See exactly how your monthly investment can grow — with real-time projections." },
+      { icon: "🛡️", title: "Risk Analysis", desc: "Understand your risk profile and choose funds that match your goals perfectly." },
+      { icon: "⚡", title: "Auto-Invest", desc: "Set it once and forget it — your SIP runs automatically every month, hassle-free." },
+      { icon: "🏆", title: "Top Funds", desc: "Discover India's best performing mutual funds — handpicked, ranked and reviewed." },
+      { icon: "📊", title: "Portfolio Tracker", desc: "Track your entire portfolio in one place — returns, allocation and performance." },
+      { icon: "🔔", title: "Smart Alerts", desc: "Get instant updates on market moves, NAV changes and SIP reminders." },
+    ],
+  },
+
+  // ─── SIP Calculator ───
+  calculator: {
+    title: "SIP Calculator",
+    subtitle: "See how your wealth can grow over time",
+    defaultMonthly: 5000,
+    defaultYears: 10,
+    expectedReturnRate: 12,   // % per annum
+    minMonthly: 500,
+    maxMonthly: 100000,
+    minYears: 1,
+    maxYears: 30,
+  },
+
+  // ─── Top Funds ───
+  funds: {
+    title: "Top Performing Funds",
+    subtitle: "India's best mutual funds, curated for you",
+    items: [
+      { name: "Axis Bluechip Fund", category: "Large Cap", returns1y: "18.4%", returns3y: "15.2%", risk: "Low" },
+      { name: "Mirae Asset Emerging Bluechip", category: "Large & Mid Cap", returns1y: "22.1%", returns3y: "17.8%", risk: "Medium" },
+      { name: "Parag Parikh Flexi Cap", category: "Flexi Cap", returns1y: "19.7%", returns3y: "16.5%", risk: "Medium" },
+      { name: "SBI Small Cap Fund", category: "Small Cap", returns1y: "28.3%", returns3y: "22.1%", risk: "High" },
+      { name: "HDFC Mid-Cap Opportunities", category: "Mid Cap", returns1y: "24.6%", returns3y: "19.4%", risk: "Medium" },
+    ],
+  },
+
+  // ─── How It Works ───
+  howItWorks: {
+    title: "How It Works",
+    subtitle: "Start investing in just 4 simple steps",
+    steps: [
+      { step: "01", title: "Sign Up", desc: "Create your account in just 2 minutes — quick and easy." },
+      { step: "02", title: "Complete KYC", desc: "Instant e-KYC using your Aadhaar and PAN card." },
+      { step: "03", title: "Choose a Fund", desc: "Pick the best fund that aligns with your financial goals." },
+      { step: "04", title: "Start Your SIP", desc: "Set your monthly amount and let auto-invest do the rest." },
+    ],
+  },
+
+  // ─── Footer ───
+  footer: {
+    links: ["About", "Features", "Calculator", "Top Funds", "Contact"],
+    disclaimer:
+      "Mutual fund investments are subject to market risks. Please read all scheme related documents carefully.",
+    copyright: "© 2026 Zypeus. All rights reserved.",
+  },
+
+  // ─── Side Menu ───
+  menu: [
+    { icon: Home, label: "Home" },
+    { icon: TrendingUp, label: "Top Funds" },
+    { icon: Calculator, label: "SIP Calculator" },
+    { icon: Briefcase, label: "My Portfolio" },
+    { icon: HelpCircle, label: "How It Works" },
+    { icon: User, label: "Profile" },
+  ],
+
+  // ─── SEO ───
+  seo: {
+    title: "Zypeus — Smart SIP & Mutual Fund Investment Platform",
+    description:
+      "Start your mutual fund SIP with Zypeus. Smart investing, top performing funds, and real-time portfolio tracking — all in one place.",
+  },
+};
+
+/* ╔══════════════════════════════════════════════════════════════════╗
+   ║   👇  PAGE CODE  —  Iske niche kuch edit karne ki zaroorat nahi.  ║
+   ║       Sab kuch upar ke SITE_CONFIG se control hota hai.          ║
+   ╚══════════════════════════════════════════════════════════════════╝ */
+
 export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "Zypeus — Smart SIP & Mutual Fund Investment Platform" },
-      {
-        name: "description",
-        content:
-          "Start your mutual fund SIP with Zypeus. Smart investing, top performing funds, and real-time portfolio tracking — all in one place.",
-      },
+      { title: SITE_CONFIG.seo.title },
+      { name: "description", content: SITE_CONFIG.seo.description },
     ],
   }),
 });
@@ -36,47 +160,13 @@ const formatINR = (n: number) =>
     maximumFractionDigits: 0,
   }).format(n);
 
-const formatCurrency = (n: number) =>
-  "₹" + Math.round(n).toLocaleString("en-IN");
-
-const features = [
-  { icon: "📈", title: "SIP Calculator", desc: "See exactly how your monthly investment can grow — with real-time projections." },
-  { icon: "🛡️", title: "Risk Analysis", desc: "Understand your risk profile and choose funds that match your goals perfectly." },
-  { icon: "⚡", title: "Auto-Invest", desc: "Set it once and forget it — your SIP runs automatically every month, hassle-free." },
-  { icon: "🏆", title: "Top Funds", desc: "Discover India's best performing mutual funds — handpicked, ranked and reviewed." },
-  { icon: "📊", title: "Portfolio Tracker", desc: "Track your entire portfolio in one place — returns, allocation and performance." },
-  { icon: "🔔", title: "Smart Alerts", desc: "Get instant updates on market moves, NAV changes and SIP reminders." },
-];
-
-const funds = [
-  { name: "Axis Bluechip Fund", category: "Large Cap", returns1y: "18.4%", returns3y: "15.2%", risk: "Low" },
-  { name: "Mirae Asset Emerging Bluechip", category: "Large & Mid Cap", returns1y: "22.1%", returns3y: "17.8%", risk: "Medium" },
-  { name: "Parag Parikh Flexi Cap", category: "Flexi Cap", returns1y: "19.7%", returns3y: "16.5%", risk: "Medium" },
-  { name: "SBI Small Cap Fund", category: "Small Cap", returns1y: "28.3%", returns3y: "22.1%", risk: "High" },
-  { name: "HDFC Mid-Cap Opportunities", category: "Mid Cap", returns1y: "24.6%", returns3y: "19.4%", risk: "Medium" },
-];
+const formatCurrency = (n: number) => "₹" + Math.round(n).toLocaleString("en-IN");
 
 const riskColor: Record<string, string> = {
   Low: "var(--color-success)",
   Medium: "var(--color-gold)",
   High: "oklch(0.65 0.22 25)",
 };
-
-const steps = [
-  { step: "01", title: "Sign Up", desc: "Create your account in just 2 minutes — quick and easy." },
-  { step: "02", title: "Complete KYC", desc: "Instant e-KYC using your Aadhaar and PAN card." },
-  { step: "03", title: "Choose a Fund", desc: "Pick the best fund that aligns with your financial goals." },
-  { step: "04", title: "Start Your SIP", desc: "Set your monthly amount and let auto-invest do the rest." },
-];
-
-const menuItems = [
-  { icon: Home, label: "Home" },
-  { icon: TrendingUp, label: "Top Funds" },
-  { icon: Calculator, label: "SIP Calculator" },
-  { icon: Briefcase, label: "My Portfolio" },
-  { icon: HelpCircle, label: "How It Works" },
-  { icon: User, label: "Profile" },
-];
 
 const container = {
   hidden: {},
@@ -104,25 +194,29 @@ const cardVariant = {
 };
 
 function Index() {
+  const cfg = SITE_CONFIG;
+
   // Modals & menu
   const [termsOpen, setTermsOpen] = useState(false);
   const [confirmOpen, setConfirmOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [selectedFund, setSelectedFund] = useState<string | null>(null);
-  const [activeFundForConfirm, setActiveFundForConfirm] = useState<string>("Zypeus Smart SIP Starter");
+  const [activeFundForConfirm, setActiveFundForConfirm] = useState<string>(
+    `${cfg.brand.name} Smart SIP Starter`,
+  );
 
-  // Terms modal state
+  // Terms modal
   const [agreed, setAgreed] = useState(false);
 
-  // Confirmation modal state
-  const [amount, setAmount] = useState(5000);
+  // Confirmation modal
+  const [amount, setAmount] = useState(cfg.calculator.defaultMonthly);
   const [sipDate, setSipDate] = useState(5);
   const [confirmed, setConfirmed] = useState(false);
 
-  // SIP Calculator state
-  const [monthly, setMonthly] = useState(5000);
-  const [years, setYears] = useState(10);
-  const rate = 12;
+  // SIP Calculator
+  const [monthly, setMonthly] = useState(cfg.calculator.defaultMonthly);
+  const [years, setYears] = useState(cfg.calculator.defaultYears);
+  const rate = cfg.calculator.expectedReturnRate;
   const months = years * 12;
   const r = rate / 100 / 12;
   const futureValue = monthly * ((Math.pow(1 + r, months) - 1) / r) * (1 + r);
@@ -137,23 +231,20 @@ function Index() {
     amount * ((Math.pow(1 + cMonthlyRate, cMonths) - 1) / cMonthlyRate) * (1 + cMonthlyRate);
   const cInvested = amount * cMonths;
   const cGains = Math.max(0, cFutureValue - cInvested);
-  const referenceId = `ZYP-${Date.now().toString().slice(-8)}`;
+  const referenceId = `${cfg.brand.name.slice(0, 3).toUpperCase()}-${Date.now().toString().slice(-8)}`;
 
-  // Reset terms agreement when reopened
   useEffect(() => {
     if (!termsOpen) setAgreed(false);
   }, [termsOpen]);
 
-  // Reset confirmation modal when opened
   useEffect(() => {
     if (confirmOpen) {
-      setAmount(5000);
+      setAmount(cfg.calculator.defaultMonthly);
       setSipDate(5);
       setConfirmed(false);
     }
-  }, [confirmOpen]);
+  }, [confirmOpen, cfg.calculator.defaultMonthly]);
 
-  // Body scroll lock
   useEffect(() => {
     const lock = termsOpen || confirmOpen || menuOpen;
     document.body.style.overflow = lock ? "hidden" : "";
@@ -170,7 +261,7 @@ function Index() {
 
   return (
     <div className="min-h-screen">
-      {/* ============== HERO SECTION ============== */}
+      {/* ============== HERO ============== */}
       <section className="relative min-h-screen flex items-start justify-center overflow-hidden bg-background pt-32 md:pt-40 pb-16">
         {/* Top brand bar */}
         <motion.div
@@ -184,13 +275,15 @@ function Index() {
               className="w-8 h-8 rounded-xl flex items-center justify-center text-primary-foreground font-bold text-sm"
               style={{ background: "var(--gradient-cta)", boxShadow: "var(--shadow-cta)" }}
             >
-              Z
+              {cfg.brand.logoLetter}
             </div>
-            <span className="font-semibold text-foreground text-base tracking-tight">Zypeus</span>
+            <span className="font-semibold text-foreground text-base tracking-tight">
+              {cfg.brand.name}
+            </span>
           </div>
           <div className="flex items-center gap-3">
             <span className="text-[10px] tracking-[0.25em] uppercase text-muted-foreground hidden sm:inline">
-              SEBI Registered
+              {cfg.brand.badge}
             </span>
             <button
               onClick={() => setMenuOpen(true)}
@@ -202,7 +295,7 @@ function Index() {
           </div>
         </motion.div>
 
-        {/* Animated gradient background */}
+        {/* Animated gradient backgrounds */}
         <motion.div
           className="pointer-events-none absolute inset-0"
           style={{ background: "var(--gradient-hero-bg)" }}
@@ -231,16 +324,16 @@ function Index() {
           animate="show"
         >
           <motion.p variants={fadeUp} className="text-sm tracking-[0.35em] uppercase text-muted-foreground">
-            Smart SIP &middot; Mutual Funds &middot; Wealth Growth
+            {cfg.hero.eyebrow}
           </motion.p>
 
           <motion.h1 variants={fadeUp} className="mt-4 text-7xl md:text-8xl font-bold tracking-tight">
-            <span className="text-foreground">Zy</span>
-            <span className="text-primary">peus</span>
+            <span className="text-foreground">{cfg.hero.titlePart1}</span>
+            <span className="text-primary">{cfg.hero.titlePart2}</span>
           </motion.h1>
 
           <motion.p variants={fadeUp} className="mt-6 text-lg text-muted-foreground max-w-xl mx-auto leading-relaxed">
-            Invest your money smartly through SIPs in top mutual funds. A little every month, a lot in the future.
+            {cfg.hero.subtitle}
           </motion.p>
 
           <motion.div variants={fadeUp} className="mt-10 flex items-center justify-center gap-4 flex-wrap">
@@ -248,11 +341,11 @@ function Index() {
               whileHover={{ scale: 1.04, y: -2 }}
               whileTap={{ scale: 0.97 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              onClick={() => openTermsForFund("Zypeus Smart SIP Starter")}
+              onClick={() => openTermsForFund(`${cfg.brand.name} Smart SIP Starter`)}
               className="rounded-full px-10 py-3.5 text-sm font-semibold text-primary-foreground"
               style={{ background: "var(--gradient-cta)", boxShadow: "var(--shadow-cta)" }}
             >
-              Start SIP Now
+              {cfg.hero.primaryCta}
             </motion.button>
             <motion.button
               whileHover={{ scale: 1.04, y: -2 }}
@@ -260,16 +353,12 @@ function Index() {
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
               className="rounded-full border border-border bg-background px-8 py-3.5 text-sm font-medium text-foreground hover:bg-secondary"
             >
-              Learn More
+              {cfg.hero.secondaryCta}
             </motion.button>
           </motion.div>
 
           <motion.div variants={fadeUp} className="mt-16 flex flex-wrap justify-center gap-6">
-            {[
-              { label: "Active SIPs", value: "2.4L+" },
-              { label: "Assets Under Management", value: "₹1200 Cr" },
-              { label: "Avg. Annual Returns", value: "14.2%" },
-            ].map((stat, i) => (
+            {cfg.hero.stats.map((stat, i) => (
               <motion.div
                 key={stat.label}
                 initial={{ opacity: 0, y: 20 }}
@@ -287,349 +376,354 @@ function Index() {
         </motion.div>
       </section>
 
-      {/* ============== FEATURES SECTION ============== */}
-      <section className="py-24 px-6 bg-background">
-        <div className="max-w-6xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.8, ease: EASE }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground">
-              Everything you need, in one place
-            </h2>
-            <p className="mt-4 text-muted-foreground text-lg max-w-xl mx-auto">
-              Powerful tools and features designed to make mutual fund investing simple,
-              smart and rewarding for everyone.
-            </p>
-          </motion.div>
+      {/* ============== FEATURES ============== */}
+      {cfg.sections.features && (
+        <section className="py-24 px-6 bg-background">
+          <div className="max-w-6xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.8, ease: EASE }}
+              className="text-center mb-16"
+            >
+              <h2 className="text-4xl md:text-5xl font-bold text-foreground">{cfg.features.title}</h2>
+              <p className="mt-4 text-muted-foreground text-lg max-w-xl mx-auto">{cfg.features.subtitle}</p>
+            </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {features.map((f, i) => (
-              <motion.div
-                key={f.title}
-                custom={i}
-                variants={cardVariant}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true, margin: "-60px" }}
-                whileHover={{ y: -10, scale: 1.025 }}
-                transition={{ type: "spring", stiffness: 250, damping: 22 }}
-                className="rounded-2xl border border-border bg-card p-8"
-                style={{ boxShadow: "var(--shadow-card)" }}
-              >
-                <motion.span
-                  className="text-4xl inline-block"
-                  whileHover={{ rotate: [0, -10, 10, -6, 0], scale: 1.15 }}
-                  transition={{ duration: 0.6 }}
-                >
-                  {f.icon}
-                </motion.span>
-                <h3 className="mt-4 text-xl font-semibold text-foreground">{f.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{f.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ============== SIP CALCULATOR ============== */}
-      <section className="py-24 px-6 bg-secondary/40">
-        <div className="max-w-4xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.8, ease: EASE }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground">SIP Calculator</h2>
-            <p className="mt-4 text-muted-foreground text-lg">See how your wealth can grow over time</p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, scale: 0.96, y: 20 }}
-            whileInView={{ opacity: 1, scale: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.8, ease: EASE }}
-            className="rounded-3xl border border-border bg-card p-8 md:p-12"
-            style={{ boxShadow: "var(--shadow-card)" }}
-          >
-            <div className="grid md:grid-cols-2 gap-10">
-              <div className="space-y-8">
-                <div>
-                  <div className="flex justify-between mb-2">
-                    <label className="text-sm font-medium text-foreground">Monthly Investment</label>
-                    <motion.span
-                      key={monthly}
-                      initial={{ scale: 0.85, opacity: 0 }}
-                      animate={{ scale: 1, opacity: 1 }}
-                      transition={{ duration: 0.25 }}
-                      className="text-sm font-bold text-primary"
-                    >
-                      {formatCurrency(monthly)}
-                    </motion.span>
-                  </div>
-                  <input
-                    type="range"
-                    min={500}
-                    max={100000}
-                    step={500}
-                    value={monthly}
-                    onChange={(e) => setMonthly(Number(e.target.value))}
-                    className="w-full accent-primary h-2 rounded-full cursor-pointer"
-                  />
-                  <div className="flex justify-between text-xs text-muted-foreground mt-1">
-                    <span>₹500</span>
-                    <span>₹1,00,000</span>
-                  </div>
-                </div>
-
-                <div>
-                  <div className="flex justify-between mb-2">
-                    <label className="text-sm font-medium text-foreground">Time Period</label>
-                    <motion.span
-                      key={years}
-                      initial={{ scale: 0.85, opacity: 0 }}
-                      animate={{ scale: 1, opacity: 1 }}
-                      transition={{ duration: 0.25 }}
-                      className="text-sm font-bold text-primary"
-                    >
-                      {years} {years === 1 ? "year" : "years"}
-                    </motion.span>
-                  </div>
-                  <input
-                    type="range"
-                    min={1}
-                    max={30}
-                    step={1}
-                    value={years}
-                    onChange={(e) => setYears(Number(e.target.value))}
-                    className="w-full accent-primary h-2 rounded-full cursor-pointer"
-                  />
-                  <div className="flex justify-between text-xs text-muted-foreground mt-1">
-                    <span>1 yr</span>
-                    <span>30 yrs</span>
-                  </div>
-                </div>
-
-                <div className="rounded-xl bg-secondary/60 p-4">
-                  <p className="text-xs text-muted-foreground">Expected Annual Return</p>
-                  <p className="text-2xl font-bold text-primary">{rate}% p.a.</p>
-                </div>
-              </div>
-
-              <div className="flex flex-col items-center justify-center">
-                <div className="w-full mb-8">
-                  <div className="h-4 rounded-full bg-secondary overflow-hidden">
-                    <motion.div
-                      className="h-full rounded-full"
-                      style={{ background: "var(--gradient-cta)" }}
-                      initial={{ width: 0 }}
-                      animate={{ width: `${investedPercent}%` }}
-                      transition={{ duration: 0.8, ease: EASE }}
-                    />
-                  </div>
-                  <div className="flex justify-between mt-2 text-xs text-muted-foreground">
-                    <span className="flex items-center gap-1">
-                      <span className="inline-block w-2 h-2 rounded-full bg-primary" /> Invested
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <span className="inline-block w-2 h-2 rounded-full bg-secondary" /> Returns
-                    </span>
-                  </div>
-                </div>
-
-                <div className="space-y-4 w-full">
-                  <div className="flex justify-between items-center">
-                    <span className="text-sm text-muted-foreground">Invested Amount</span>
-                    <AnimatePresence mode="wait">
-                      <motion.span
-                        key={invested}
-                        initial={{ y: 8, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        exit={{ y: -8, opacity: 0 }}
-                        transition={{ duration: 0.25 }}
-                        className="text-lg font-semibold text-foreground"
-                      >
-                        {formatCurrency(invested)}
-                      </motion.span>
-                    </AnimatePresence>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-sm text-muted-foreground">Estimated Returns</span>
-                    <AnimatePresence mode="wait">
-                      <motion.span
-                        key={returns}
-                        initial={{ y: 8, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        exit={{ y: -8, opacity: 0 }}
-                        transition={{ duration: 0.25 }}
-                        className="text-lg font-semibold"
-                        style={{ color: "var(--color-success)" }}
-                      >
-                        {formatCurrency(returns)}
-                      </motion.span>
-                    </AnimatePresence>
-                  </div>
-                  <div className="h-px bg-border" />
-                  <div className="flex justify-between items-center">
-                    <span className="text-sm font-medium text-foreground">Total Value</span>
-                    <AnimatePresence mode="wait">
-                      <motion.span
-                        key={futureValue}
-                        initial={{ scale: 0.85, opacity: 0 }}
-                        animate={{ scale: 1, opacity: 1 }}
-                        exit={{ scale: 0.85, opacity: 0 }}
-                        transition={{ duration: 0.3, ease: EASE }}
-                        className="text-2xl font-bold text-primary"
-                      >
-                        {formatCurrency(futureValue)}
-                      </motion.span>
-                    </AnimatePresence>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* ============== TOP FUNDS ============== */}
-      <section className="py-24 px-6 bg-background">
-        <div className="max-w-5xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.8, ease: EASE }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground">Top Performing Funds</h2>
-            <p className="mt-4 text-muted-foreground text-lg">India's best mutual funds, curated for you</p>
-          </motion.div>
-
-          <div className="space-y-4">
-            {funds.map((fund, i) => (
-              <motion.div
-                key={fund.name}
-                initial={{ opacity: 0, x: -40, filter: "blur(4px)" }}
-                whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
-                viewport={{ once: true, margin: "-40px" }}
-                transition={{ delay: i * 0.08, duration: 0.7, ease: EASE }}
-                whileHover={{ x: 8, scale: 1.01 }}
-                className="flex flex-col sm:flex-row sm:items-center justify-between rounded-2xl border border-border bg-card p-5 gap-4"
-                style={{ boxShadow: "var(--shadow-card)" }}
-              >
-                <div className="flex-1 min-w-0">
-                  <h3 className="font-semibold text-foreground truncate">{fund.name}</h3>
-                  <p className="text-xs text-muted-foreground mt-0.5">{fund.category}</p>
-                </div>
-
-                <div className="flex items-center gap-6 text-sm">
-                  <div className="text-center">
-                    <p className="text-xs text-muted-foreground">1Y Return</p>
-                    <p className="font-bold" style={{ color: "var(--color-success)" }}>{fund.returns1y}</p>
-                  </div>
-                  <div className="text-center">
-                    <p className="text-xs text-muted-foreground">3Y Return</p>
-                    <p className="font-bold" style={{ color: "var(--color-success)" }}>{fund.returns3y}</p>
-                  </div>
-                  <div className="text-center">
-                    <p className="text-xs text-muted-foreground">Risk</p>
-                    <p className="font-bold text-xs" style={{ color: riskColor[fund.risk] }}>{fund.risk}</p>
-                  </div>
-                  <motion.button
-                    whileHover={{ scale: 1.06 }}
-                    whileTap={{ scale: 0.95 }}
-                    transition={{ type: "spring", stiffness: 300, damping: 18 }}
-                    onClick={() => openTermsForFund(fund.name)}
-                    className="rounded-full px-5 py-2 text-xs font-semibold text-primary-foreground shrink-0"
-                    style={{ background: "var(--gradient-cta)" }}
-                  >
-                    Invest
-                  </motion.button>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ============== HOW IT WORKS ============== */}
-      <section className="py-24 px-6 bg-secondary/40">
-        <div className="max-w-5xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.8, ease: EASE }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground">How It Works</h2>
-            <p className="mt-4 text-muted-foreground text-lg">Start investing in just 4 simple steps</p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {steps.map((s, i) => (
-              <motion.div
-                key={s.step}
-                initial={{ opacity: 0, y: 50, filter: "blur(6px)" }}
-                whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ delay: i * 0.12, duration: 0.75, ease: EASE }}
-                className="relative text-center"
-              >
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {cfg.features.items.map((f, i) => (
                 <motion.div
-                  whileHover={{ scale: 1.12, rotate: -4 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 15 }}
-                  className="mx-auto w-16 h-16 rounded-2xl flex items-center justify-center text-2xl font-black text-primary-foreground mb-5"
-                  style={{ background: "var(--gradient-cta)", boxShadow: "var(--shadow-cta)" }}
+                  key={f.title}
+                  custom={i}
+                  variants={cardVariant}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true, margin: "-60px" }}
+                  whileHover={{ y: -10, scale: 1.025 }}
+                  transition={{ type: "spring", stiffness: 250, damping: 22 }}
+                  className="rounded-2xl border border-border bg-card p-8"
+                  style={{ boxShadow: "var(--shadow-card)" }}
                 >
-                  {s.step}
+                  <motion.span
+                    className="text-4xl inline-block"
+                    whileHover={{ rotate: [0, -10, 10, -6, 0], scale: 1.15 }}
+                    transition={{ duration: 0.6 }}
+                  >
+                    {f.icon}
+                  </motion.span>
+                  <h3 className="mt-4 text-xl font-semibold text-foreground">{f.title}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{f.desc}</p>
                 </motion.div>
-                <h3 className="text-lg font-semibold text-foreground">{s.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground">{s.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ============== FOOTER ============== */}
-      <footer className="py-16 px-6 bg-foreground text-background">
-        <div className="max-w-5xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.8, ease: EASE }}
-            className="text-center"
-          >
-            <h2 className="text-3xl font-bold">Zypeus</h2>
-            <p className="mt-2 text-sm opacity-60">Smart SIP · Mutual Funds · Wealth Growth</p>
-
-            <div className="mt-8 flex flex-wrap justify-center gap-8 text-sm opacity-70">
-              {["About", "Features", "Calculator", "Top Funds", "Contact"].map((item) => (
-                <motion.span
-                  key={item}
-                  whileHover={{ y: -2, opacity: 1 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 18 }}
-                  className="cursor-pointer"
-                >
-                  {item}
-                </motion.span>
               ))}
             </div>
+          </div>
+        </section>
+      )}
 
-            <p className="mt-10 text-xs opacity-40">
-              Mutual fund investments are subject to market risks. Please read all scheme related documents carefully. © 2026 Zypeus. All rights reserved.
-            </p>
-          </motion.div>
-        </div>
-      </footer>
+      {/* ============== SIP CALCULATOR ============== */}
+      {cfg.sections.calculator && (
+        <section className="py-24 px-6 bg-secondary/40">
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.8, ease: EASE }}
+              className="text-center mb-12"
+            >
+              <h2 className="text-4xl md:text-5xl font-bold text-foreground">{cfg.calculator.title}</h2>
+              <p className="mt-4 text-muted-foreground text-lg">{cfg.calculator.subtitle}</p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.96, y: 20 }}
+              whileInView={{ opacity: 1, scale: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.8, ease: EASE }}
+              className="rounded-3xl border border-border bg-card p-8 md:p-12"
+              style={{ boxShadow: "var(--shadow-card)" }}
+            >
+              <div className="grid md:grid-cols-2 gap-10">
+                <div className="space-y-8">
+                  <div>
+                    <div className="flex justify-between mb-2">
+                      <label className="text-sm font-medium text-foreground">Monthly Investment</label>
+                      <motion.span
+                        key={monthly}
+                        initial={{ scale: 0.85, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        transition={{ duration: 0.25 }}
+                        className="text-sm font-bold text-primary"
+                      >
+                        {formatCurrency(monthly)}
+                      </motion.span>
+                    </div>
+                    <input
+                      type="range"
+                      min={cfg.calculator.minMonthly}
+                      max={cfg.calculator.maxMonthly}
+                      step={500}
+                      value={monthly}
+                      onChange={(e) => setMonthly(Number(e.target.value))}
+                      className="w-full accent-primary h-2 rounded-full cursor-pointer"
+                    />
+                    <div className="flex justify-between text-xs text-muted-foreground mt-1">
+                      <span>{formatCurrency(cfg.calculator.minMonthly)}</span>
+                      <span>{formatCurrency(cfg.calculator.maxMonthly)}</span>
+                    </div>
+                  </div>
+
+                  <div>
+                    <div className="flex justify-between mb-2">
+                      <label className="text-sm font-medium text-foreground">Time Period</label>
+                      <motion.span
+                        key={years}
+                        initial={{ scale: 0.85, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        transition={{ duration: 0.25 }}
+                        className="text-sm font-bold text-primary"
+                      >
+                        {years} {years === 1 ? "year" : "years"}
+                      </motion.span>
+                    </div>
+                    <input
+                      type="range"
+                      min={cfg.calculator.minYears}
+                      max={cfg.calculator.maxYears}
+                      step={1}
+                      value={years}
+                      onChange={(e) => setYears(Number(e.target.value))}
+                      className="w-full accent-primary h-2 rounded-full cursor-pointer"
+                    />
+                    <div className="flex justify-between text-xs text-muted-foreground mt-1">
+                      <span>{cfg.calculator.minYears} yr</span>
+                      <span>{cfg.calculator.maxYears} yrs</span>
+                    </div>
+                  </div>
+
+                  <div className="rounded-xl bg-secondary/60 p-4">
+                    <p className="text-xs text-muted-foreground">Expected Annual Return</p>
+                    <p className="text-2xl font-bold text-primary">{rate}% p.a.</p>
+                  </div>
+                </div>
+
+                <div className="flex flex-col items-center justify-center">
+                  <div className="w-full mb-8">
+                    <div className="h-4 rounded-full bg-secondary overflow-hidden">
+                      <motion.div
+                        className="h-full rounded-full"
+                        style={{ background: "var(--gradient-cta)" }}
+                        initial={{ width: 0 }}
+                        animate={{ width: `${investedPercent}%` }}
+                        transition={{ duration: 0.8, ease: EASE }}
+                      />
+                    </div>
+                    <div className="flex justify-between mt-2 text-xs text-muted-foreground">
+                      <span className="flex items-center gap-1">
+                        <span className="inline-block w-2 h-2 rounded-full bg-primary" /> Invested
+                      </span>
+                      <span className="flex items-center gap-1">
+                        <span className="inline-block w-2 h-2 rounded-full bg-secondary" /> Returns
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="space-y-4 w-full">
+                    <div className="flex justify-between items-center">
+                      <span className="text-sm text-muted-foreground">Invested Amount</span>
+                      <AnimatePresence mode="wait">
+                        <motion.span
+                          key={invested}
+                          initial={{ y: 8, opacity: 0 }}
+                          animate={{ y: 0, opacity: 1 }}
+                          exit={{ y: -8, opacity: 0 }}
+                          transition={{ duration: 0.25 }}
+                          className="text-lg font-semibold text-foreground"
+                        >
+                          {formatCurrency(invested)}
+                        </motion.span>
+                      </AnimatePresence>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span className="text-sm text-muted-foreground">Estimated Returns</span>
+                      <AnimatePresence mode="wait">
+                        <motion.span
+                          key={returns}
+                          initial={{ y: 8, opacity: 0 }}
+                          animate={{ y: 0, opacity: 1 }}
+                          exit={{ y: -8, opacity: 0 }}
+                          transition={{ duration: 0.25 }}
+                          className="text-lg font-semibold"
+                          style={{ color: "var(--color-success)" }}
+                        >
+                          {formatCurrency(returns)}
+                        </motion.span>
+                      </AnimatePresence>
+                    </div>
+                    <div className="h-px bg-border" />
+                    <div className="flex justify-between items-center">
+                      <span className="text-sm font-medium text-foreground">Total Value</span>
+                      <AnimatePresence mode="wait">
+                        <motion.span
+                          key={futureValue}
+                          initial={{ scale: 0.85, opacity: 0 }}
+                          animate={{ scale: 1, opacity: 1 }}
+                          exit={{ scale: 0.85, opacity: 0 }}
+                          transition={{ duration: 0.3, ease: EASE }}
+                          className="text-2xl font-bold text-primary"
+                        >
+                          {formatCurrency(futureValue)}
+                        </motion.span>
+                      </AnimatePresence>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+      )}
+
+      {/* ============== TOP FUNDS ============== */}
+      {cfg.sections.funds && (
+        <section className="py-24 px-6 bg-background">
+          <div className="max-w-5xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.8, ease: EASE }}
+              className="text-center mb-12"
+            >
+              <h2 className="text-4xl md:text-5xl font-bold text-foreground">{cfg.funds.title}</h2>
+              <p className="mt-4 text-muted-foreground text-lg">{cfg.funds.subtitle}</p>
+            </motion.div>
+
+            <div className="space-y-4">
+              {cfg.funds.items.map((fund, i) => (
+                <motion.div
+                  key={fund.name}
+                  initial={{ opacity: 0, x: -40, filter: "blur(4px)" }}
+                  whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
+                  viewport={{ once: true, margin: "-40px" }}
+                  transition={{ delay: i * 0.08, duration: 0.7, ease: EASE }}
+                  whileHover={{ x: 8, scale: 1.01 }}
+                  className="flex flex-col sm:flex-row sm:items-center justify-between rounded-2xl border border-border bg-card p-5 gap-4"
+                  style={{ boxShadow: "var(--shadow-card)" }}
+                >
+                  <div className="flex-1 min-w-0">
+                    <h3 className="font-semibold text-foreground truncate">{fund.name}</h3>
+                    <p className="text-xs text-muted-foreground mt-0.5">{fund.category}</p>
+                  </div>
+
+                  <div className="flex items-center gap-6 text-sm">
+                    <div className="text-center">
+                      <p className="text-xs text-muted-foreground">1Y Return</p>
+                      <p className="font-bold" style={{ color: "var(--color-success)" }}>{fund.returns1y}</p>
+                    </div>
+                    <div className="text-center">
+                      <p className="text-xs text-muted-foreground">3Y Return</p>
+                      <p className="font-bold" style={{ color: "var(--color-success)" }}>{fund.returns3y}</p>
+                    </div>
+                    <div className="text-center">
+                      <p className="text-xs text-muted-foreground">Risk</p>
+                      <p className="font-bold text-xs" style={{ color: riskColor[fund.risk] }}>{fund.risk}</p>
+                    </div>
+                    <motion.button
+                      whileHover={{ scale: 1.06 }}
+                      whileTap={{ scale: 0.95 }}
+                      transition={{ type: "spring", stiffness: 300, damping: 18 }}
+                      onClick={() => openTermsForFund(fund.name)}
+                      className="rounded-full px-5 py-2 text-xs font-semibold text-primary-foreground shrink-0"
+                      style={{ background: "var(--gradient-cta)" }}
+                    >
+                      Invest
+                    </motion.button>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ============== HOW IT WORKS ============== */}
+      {cfg.sections.howItWorks && (
+        <section className="py-24 px-6 bg-secondary/40">
+          <div className="max-w-5xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.8, ease: EASE }}
+              className="text-center mb-16"
+            >
+              <h2 className="text-4xl md:text-5xl font-bold text-foreground">{cfg.howItWorks.title}</h2>
+              <p className="mt-4 text-muted-foreground text-lg">{cfg.howItWorks.subtitle}</p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+              {cfg.howItWorks.steps.map((s, i) => (
+                <motion.div
+                  key={s.step}
+                  initial={{ opacity: 0, y: 50, filter: "blur(6px)" }}
+                  whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ delay: i * 0.12, duration: 0.75, ease: EASE }}
+                  className="relative text-center"
+                >
+                  <motion.div
+                    whileHover={{ scale: 1.12, rotate: -4 }}
+                    transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                    className="mx-auto w-16 h-16 rounded-2xl flex items-center justify-center text-2xl font-black text-primary-foreground mb-5"
+                    style={{ background: "var(--gradient-cta)", boxShadow: "var(--shadow-cta)" }}
+                  >
+                    {s.step}
+                  </motion.div>
+                  <h3 className="text-lg font-semibold text-foreground">{s.title}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground">{s.desc}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ============== FOOTER ============== */}
+      {cfg.sections.footer && (
+        <footer className="py-16 px-6 bg-foreground text-background">
+          <div className="max-w-5xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.8, ease: EASE }}
+              className="text-center"
+            >
+              <h2 className="text-3xl font-bold">{cfg.brand.name}</h2>
+              <p className="mt-2 text-sm opacity-60">{cfg.brand.tagline}</p>
+
+              <div className="mt-8 flex flex-wrap justify-center gap-8 text-sm opacity-70">
+                {cfg.footer.links.map((item) => (
+                  <motion.span
+                    key={item}
+                    whileHover={{ y: -2, opacity: 1 }}
+                    transition={{ type: "spring", stiffness: 300, damping: 18 }}
+                    className="cursor-pointer"
+                  >
+                    {item}
+                  </motion.span>
+                ))}
+              </div>
+
+              <p className="mt-10 text-xs opacity-40">
+                {cfg.footer.disclaimer} {cfg.footer.copyright}
+              </p>
+            </motion.div>
+          </div>
+        </footer>
+      )}
 
       {/* ============== SIDE MENU ============== */}
       <AnimatePresence>
@@ -660,11 +754,13 @@ function Index() {
                     className="w-9 h-9 rounded-xl flex items-center justify-center text-primary-foreground font-bold"
                     style={{ background: "var(--gradient-cta)", boxShadow: "var(--shadow-cta)" }}
                   >
-                    Z
+                    {cfg.brand.logoLetter}
                   </div>
                   <div>
-                    <p className="font-semibold text-foreground leading-tight">Zypeus</p>
-                    <p className="text-[10px] tracking-[0.2em] uppercase text-muted-foreground">Smart SIP</p>
+                    <p className="font-semibold text-foreground leading-tight">{cfg.brand.name}</p>
+                    <p className="text-[10px] tracking-[0.2em] uppercase text-muted-foreground">
+                      {cfg.brand.tagline.split("·")[0].trim()}
+                    </p>
                   </div>
                 </div>
                 <button
@@ -677,7 +773,7 @@ function Index() {
               </div>
 
               <nav className="flex-1 overflow-y-auto px-3 py-4 space-y-1">
-                {menuItems.map((item, i) => (
+                {cfg.menu.map((item, i) => (
                   <motion.button
                     key={item.label}
                     initial={{ opacity: 0, x: 20 }}
@@ -699,7 +795,7 @@ function Index() {
                   <span className="text-sm font-medium">Log Out</span>
                 </button>
                 <p className="text-[10px] text-center text-muted-foreground tracking-wider uppercase">
-                  v1.0 &middot; SEBI Registered
+                  v1.0 &middot; {cfg.brand.badge}
                 </p>
               </div>
             </motion.aside>
@@ -761,10 +857,10 @@ function Index() {
                 {[
                   { t: "1. Market Risk", d: "Mutual fund investments are subject to market risks. The value of your investment can go up or down based on market conditions and past performance is not indicative of future returns." },
                   { t: "2. KYC Requirement", d: "You must complete your KYC verification using a valid PAN and Aadhaar before any investment is processed. Incomplete KYC may result in delays or cancellation of your SIP." },
-                  { t: "3. SIP Auto-Debit", d: "By starting a SIP, you authorize Zypeus to auto-debit the agreed monthly amount from your registered bank account on the scheduled date until you choose to pause or cancel the SIP." },
-                  { t: "4. Charges & Fees", d: "All applicable fund expense ratios, exit loads and statutory taxes will apply as per the scheme documents. Zypeus does not charge any hidden fees on your investments." },
+                  { t: "3. SIP Auto-Debit", d: `By starting a SIP, you authorize ${cfg.brand.name} to auto-debit the agreed monthly amount from your registered bank account on the scheduled date until you choose to pause or cancel the SIP.` },
+                  { t: "4. Charges & Fees", d: `All applicable fund expense ratios, exit loads and statutory taxes will apply as per the scheme documents. ${cfg.brand.name} does not charge any hidden fees on your investments.` },
                   { t: "5. Read Scheme Documents", d: "You are advised to read all scheme related documents carefully before investing. Returns shown anywhere on this platform are illustrative and not guaranteed." },
-                  { t: "6. No Investment Advice", d: "Information provided on Zypeus is for general purposes and does not constitute personalized financial advice. Please consult a certified financial advisor before making investment decisions." },
+                  { t: "6. No Investment Advice", d: `Information provided on ${cfg.brand.name} is for general purposes and does not constitute personalized financial advice. Please consult a certified financial advisor before making investment decisions.` },
                 ].map((s) => (
                   <div key={s.t}>
                     <h4 className="font-semibold text-foreground mb-1">{s.t}</h4>
@@ -879,16 +975,16 @@ function Index() {
                       </div>
                       <input
                         type="range"
-                        min={500}
-                        max={100000}
+                        min={cfg.calculator.minMonthly}
+                        max={cfg.calculator.maxMonthly}
                         step={500}
                         value={amount}
                         onChange={(e) => setAmount(Number(e.target.value))}
                         className="w-full accent-primary cursor-pointer"
                       />
                       <div className="flex justify-between text-[10px] text-muted-foreground mt-1">
-                        <span>₹500</span>
-                        <span>₹1,00,000</span>
+                        <span>{formatCurrency(cfg.calculator.minMonthly)}</span>
+                        <span>{formatCurrency(cfg.calculator.maxMonthly)}</span>
                       </div>
                     </div>
 
@@ -1007,7 +1103,7 @@ function Index() {
                     transition={{ delay: 0.3 }}
                     className="mt-2 text-sm text-muted-foreground"
                   >
-                    Your investment journey with Zypeus has officially begun.
+                    Your investment journey with {cfg.brand.name} has officially begun.
                   </motion.p>
 
                   <motion.div
