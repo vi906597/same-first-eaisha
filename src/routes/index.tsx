@@ -11,6 +11,22 @@ import {
   User,
   LogOut,
   X,
+  Shield,
+  Leaf,
+  Zap,
+  Star,
+  Rocket,
+  IndianRupee,
+  ArrowUpRight,
+  ArrowDownRight,
+  Clock,
+  CheckCircle2,
+  CreditCard,
+  FileCheck,
+  Building2,
+  Sparkles,
+  Receipt,
+  ChevronRight,
 } from "lucide-react";
 
 /* ╔══════════════════════════════════════════════════════════════════╗
@@ -51,8 +67,12 @@ const SITE_CONFIG = {
   // ─── Sections on/off ───
   sections: {
     features: true,
+    dashboard: true,
     calculator: true,
     funds: true,
+    portfolio: true,
+    transactions: true,
+    more: true,
     howItWorks: true,
     footer: true,
   },
@@ -110,6 +130,75 @@ const SITE_CONFIG = {
     ],
   },
 
+  // ─── Dashboard / SIP Plans ───
+  dashboard: {
+    title: "Choose Your SIP Plan",
+    subtitle: "Pre-built plans for every goal — start from just ₹100/month",
+    greeting: "Hello, Investor 👋",
+    quickStats: [
+      { label: "Total Invested", value: "₹0" },
+      { label: "Current Value", value: "₹0" },
+      { label: "Active SIPs", value: "0" },
+    ],
+    plans: [
+      { id: 1, name: "Stability SIP", amount: 100, returns: "8-12%", risk: "Low", icon: "shield", popular: false, color: "var(--color-success)" },
+      { id: 2, name: "Starter SIP", amount: 500, returns: "12-15%", risk: "Low", icon: "leaf", popular: false, color: "var(--color-success)" },
+      { id: 3, name: "Growth SIP", amount: 1000, returns: "15-18%", risk: "Medium", icon: "trending", popular: true, color: "var(--color-gold)" },
+      { id: 4, name: "Power SIP", amount: 2500, returns: "18-22%", risk: "Medium-High", icon: "zap", popular: false, color: "var(--color-gold)" },
+      { id: 5, name: "Premium SIP", amount: 5000, returns: "20-25%", risk: "High", icon: "star", popular: false, color: "oklch(0.65 0.22 25)" },
+      { id: 6, name: "Booster SIP", amount: 10000, returns: "23-28%", risk: "High", icon: "rocket", popular: false, color: "oklch(0.65 0.22 25)" },
+    ],
+    customPlaceholder: "Or enter custom amount (₹100+)",
+    investCta: "Invest Now",
+  },
+
+  // ─── Portfolio (demo data) ───
+  portfolio: {
+    title: "My Portfolio",
+    subtitle: "Track your investments and watch them grow",
+    summary: {
+      totalValue: 245680,
+      invested: 180000,
+      gains: 65680,
+      gainPercent: 36.5,
+      todayChange: 2840,
+      todayChangePercent: 1.17,
+    },
+    holdings: [
+      { name: "Growth SIP", invested: 60000, current: 84200, units: 1245.8, nav: 67.62, change: 2.4 },
+      { name: "Premium SIP", invested: 75000, current: 102480, units: 982.4, nav: 104.31, change: 1.8 },
+      { name: "Starter SIP", invested: 30000, current: 38500, units: 654.2, nav: 58.85, change: -0.6 },
+      { name: "Stability SIP", invested: 15000, current: 20500, units: 320.1, nav: 64.04, change: 0.9 },
+    ],
+  },
+
+  // ─── Transaction History (demo) ───
+  transactions: {
+    title: "Recent Transactions",
+    subtitle: "All your SIP investments and withdrawals in one place",
+    items: [
+      { id: "TXN-2410001", type: "SIP Investment", plan: "Growth SIP", amount: 1000, date: "5 Apr 2026", status: "Success" },
+      { id: "TXN-2403021", type: "SIP Investment", plan: "Premium SIP", amount: 5000, date: "5 Apr 2026", status: "Success" },
+      { id: "TXN-2403020", type: "SIP Investment", plan: "Starter SIP", amount: 500, date: "5 Mar 2026", status: "Success" },
+      { id: "TXN-2402019", type: "Withdrawal", plan: "Stability SIP", amount: 2000, date: "12 Feb 2026", status: "Processing" },
+      { id: "TXN-2402018", type: "SIP Investment", plan: "Growth SIP", amount: 1000, date: "5 Feb 2026", status: "Success" },
+    ],
+  },
+
+  // ─── More / Account ───
+  more: {
+    title: "Account & Settings",
+    subtitle: "Manage your profile, KYC, bank details and cards",
+    items: [
+      { icon: "fileCheck", title: "Complete KYC", desc: "Verify your identity using Aadhaar & PAN", badge: "Pending" },
+      { icon: "building", title: "Bank Accounts", desc: "Manage linked bank accounts for SIPs", badge: "1 Linked" },
+      { icon: "creditCard", title: "Eaisha Card", desc: "Apply for the Zypeus prepaid investment card", badge: "Apply" },
+      { icon: "user", title: "Profile Settings", desc: "Update name, email, phone & preferences", badge: "" },
+      { icon: "shield", title: "Security", desc: "Password, 2FA and device sessions", badge: "" },
+      { icon: "receipt", title: "Tax Statements", desc: "Download capital gains reports for ITR filing", badge: "FY 2025-26" },
+    ],
+  },
+
   // ─── Footer ───
   footer: {
     links: ["About", "Features", "Calculator", "Top Funds", "Contact"],
@@ -122,11 +211,13 @@ const SITE_CONFIG = {
   // `target` = section id to scroll to (optional)
   menu: [
     { icon: Home, label: "Home", target: "top" },
+    { icon: Sparkles, label: "Dashboard", target: "dashboard" },
     { icon: TrendingUp, label: "Top Funds", target: "top-funds" },
     { icon: Calculator, label: "SIP Calculator", target: "sip-calculator" },
-    { icon: Briefcase, label: "My Portfolio" },
+    { icon: Briefcase, label: "My Portfolio", target: "portfolio" },
+    { icon: Receipt, label: "Transactions", target: "transactions" },
     { icon: HelpCircle, label: "How It Works", target: "how-it-works" },
-    { icon: User, label: "Profile" },
+    { icon: User, label: "Account", target: "more" },
   ],
 
   // ─── SEO ───
@@ -169,6 +260,27 @@ const riskColor: Record<string, string> = {
   High: "oklch(0.65 0.22 25)",
 };
 
+// Map config string -> lucide icon component (for plans, more items)
+const ICON_MAP: Record<string, React.ComponentType<{ size?: number; className?: string; strokeWidth?: number }>> = {
+  shield: Shield,
+  leaf: Leaf,
+  trending: TrendingUp,
+  zap: Zap,
+  star: Star,
+  rocket: Rocket,
+  fileCheck: FileCheck,
+  building: Building2,
+  creditCard: CreditCard,
+  user: User,
+  receipt: Receipt,
+};
+
+const txStatusColor: Record<string, string> = {
+  Success: "var(--color-success)",
+  Processing: "var(--color-gold)",
+  Failed: "oklch(0.65 0.22 25)",
+};
+
 const container = {
   hidden: {},
   show: { transition: { staggerChildren: 0.12, delayChildren: 0.1 } },
@@ -202,6 +314,9 @@ function Index() {
   const [confirmOpen, setConfirmOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [selectedFund, setSelectedFund] = useState<string | null>(null);
+  const [selectedPlanId, setSelectedPlanId] = useState<number | null>(null);
+  const [customAmount, setCustomAmount] = useState("");
+  const [txFilter, setTxFilter] = useState<"All" | "SIP Investment" | "Withdrawal">("All");
   const [activeFundForConfirm, setActiveFundForConfirm] = useState<string>(
     `${cfg.brand.name} Smart SIP Starter`,
   );
@@ -418,6 +533,166 @@ function Index() {
                 </motion.div>
               ))}
             </div>
+          </div>
+        </section>
+      )}
+
+      {/* ============== DASHBOARD / SIP PLANS ============== */}
+      {cfg.sections.dashboard && (
+        <section id="dashboard" className="py-24 px-6 bg-secondary/40">
+          <div className="max-w-6xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.8, ease: EASE }}
+              className="text-center mb-12"
+            >
+              <p className="text-sm tracking-[0.3em] uppercase text-muted-foreground">
+                {cfg.dashboard.greeting}
+              </p>
+              <h2 className="mt-3 text-4xl md:text-5xl font-bold text-foreground">
+                {cfg.dashboard.title}
+              </h2>
+              <p className="mt-4 text-muted-foreground text-lg max-w-xl mx-auto">
+                {cfg.dashboard.subtitle}
+              </p>
+            </motion.div>
+
+            {/* Quick stats strip */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.7, ease: EASE }}
+              className="grid grid-cols-3 gap-4 mb-10 max-w-2xl mx-auto"
+            >
+              {cfg.dashboard.quickStats.map((s) => (
+                <div
+                  key={s.label}
+                  className="rounded-2xl border border-border bg-card px-4 py-4 text-center"
+                  style={{ boxShadow: "var(--shadow-card)" }}
+                >
+                  <p className="text-lg md:text-2xl font-bold text-primary">{s.value}</p>
+                  <p className="mt-1 text-[11px] text-muted-foreground leading-tight">
+                    {s.label}
+                  </p>
+                </div>
+              ))}
+            </motion.div>
+
+            {/* Plan grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {cfg.dashboard.plans.map((plan, i) => {
+                const Icon = ICON_MAP[plan.icon] ?? Sparkles;
+                const isSelected = selectedPlanId === plan.id;
+                return (
+                  <motion.button
+                    key={plan.id}
+                    type="button"
+                    custom={i}
+                    variants={cardVariant}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, margin: "-50px" }}
+                    whileHover={{ y: -8, scale: 1.02 }}
+                    transition={{ type: "spring", stiffness: 250, damping: 22 }}
+                    onClick={() => setSelectedPlanId(plan.id)}
+                    className={`relative text-left rounded-2xl border bg-card p-6 transition-colors ${
+                      isSelected ? "border-primary" : "border-border"
+                    }`}
+                    style={{
+                      boxShadow: isSelected ? "var(--shadow-cta)" : "var(--shadow-card)",
+                    }}
+                  >
+                    {plan.popular && (
+                      <span
+                        className="absolute -top-2 right-4 text-[10px] font-bold tracking-wider uppercase px-2 py-1 rounded-full text-primary-foreground"
+                        style={{ background: "var(--gradient-cta)" }}
+                      >
+                        Popular
+                      </span>
+                    )}
+                    <div className="flex items-center gap-3">
+                      <div
+                        className="w-11 h-11 rounded-xl flex items-center justify-center text-primary-foreground"
+                        style={{ background: "var(--gradient-cta)" }}
+                      >
+                        <Icon size={20} strokeWidth={2.2} />
+                      </div>
+                      <div>
+                        <h3 className="font-semibold text-foreground leading-tight">
+                          {plan.name}
+                        </h3>
+                        <p className="text-xs text-muted-foreground mt-0.5">
+                          From {formatCurrency(plan.amount)}/month
+                        </p>
+                      </div>
+                    </div>
+                    <div className="mt-5 flex items-end justify-between">
+                      <div>
+                        <p className="text-[11px] text-muted-foreground uppercase tracking-wider">
+                          Expected Returns
+                        </p>
+                        <p className="text-2xl font-bold text-foreground">{plan.returns}</p>
+                      </div>
+                      <div className="text-right">
+                        <p className="text-[11px] text-muted-foreground uppercase tracking-wider">
+                          Risk
+                        </p>
+                        <p
+                          className="text-sm font-semibold"
+                          style={{ color: plan.color }}
+                        >
+                          {plan.risk}
+                        </p>
+                      </div>
+                    </div>
+                  </motion.button>
+                );
+              })}
+            </div>
+
+            {/* Custom amount + CTA */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.7, ease: EASE }}
+              className="mt-10 max-w-xl mx-auto flex flex-col sm:flex-row gap-3 items-stretch"
+            >
+              <div className="relative flex-1">
+                <IndianRupee
+                  size={16}
+                  className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground"
+                />
+                <input
+                  type="number"
+                  inputMode="numeric"
+                  min={100}
+                  value={customAmount}
+                  onChange={(e) => setCustomAmount(e.target.value)}
+                  placeholder={cfg.dashboard.customPlaceholder}
+                  className="w-full rounded-full border border-border bg-card pl-10 pr-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary"
+                />
+              </div>
+              <motion.button
+                whileHover={{ scale: 1.04, y: -2 }}
+                whileTap={{ scale: 0.97 }}
+                onClick={() => {
+                  const plan = cfg.dashboard.plans.find((p) => p.id === selectedPlanId);
+                  const amt = customAmount
+                    ? Number(customAmount)
+                    : plan?.amount ?? cfg.calculator.defaultMonthly;
+                  setAmount(Math.max(100, amt));
+                  openTermsForFund(plan?.name ?? `${cfg.brand.name} Custom SIP`);
+                }}
+                className="rounded-full px-8 py-3 text-sm font-semibold text-primary-foreground"
+                style={{ background: "var(--gradient-cta)", boxShadow: "var(--shadow-cta)" }}
+              >
+                {cfg.dashboard.investCta}
+              </motion.button>
+            </motion.div>
           </div>
         </section>
       )}
@@ -649,6 +924,237 @@ function Index() {
         </section>
       )}
 
+      {/* ============== PORTFOLIO ============== */}
+      {cfg.sections.portfolio && (
+        <section id="portfolio" className="py-24 px-6 bg-secondary/40">
+          <div className="max-w-5xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.8, ease: EASE }}
+              className="text-center mb-12"
+            >
+              <h2 className="text-4xl md:text-5xl font-bold text-foreground">
+                {cfg.portfolio.title}
+              </h2>
+              <p className="mt-4 text-muted-foreground text-lg">{cfg.portfolio.subtitle}</p>
+            </motion.div>
+
+            {/* Summary card */}
+            <motion.div
+              initial={{ opacity: 0, y: 30, filter: "blur(6px)" }}
+              whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.8, ease: EASE }}
+              className="rounded-3xl p-8 md:p-10 text-primary-foreground"
+              style={{ background: "var(--gradient-cta)", boxShadow: "var(--shadow-cta)" }}
+            >
+              <p className="text-sm opacity-80 tracking-wider uppercase">
+                Total Portfolio Value
+              </p>
+              <p className="mt-2 text-4xl md:text-5xl font-bold">
+                {formatINR(cfg.portfolio.summary.totalValue)}
+              </p>
+              <div className="mt-3 inline-flex items-center gap-1.5 text-sm bg-white/15 rounded-full px-3 py-1">
+                {cfg.portfolio.summary.todayChange >= 0 ? (
+                  <ArrowUpRight size={14} />
+                ) : (
+                  <ArrowDownRight size={14} />
+                )}
+                <span className="font-semibold">
+                  {formatCurrency(Math.abs(cfg.portfolio.summary.todayChange))} (
+                  {cfg.portfolio.summary.todayChangePercent}%) today
+                </span>
+              </div>
+
+              <div className="mt-8 grid grid-cols-3 gap-4">
+                <div>
+                  <p className="text-xs opacity-70 uppercase tracking-wider">Invested</p>
+                  <p className="mt-1 text-lg md:text-xl font-bold">
+                    {formatINR(cfg.portfolio.summary.invested)}
+                  </p>
+                </div>
+                <div>
+                  <p className="text-xs opacity-70 uppercase tracking-wider">Gains</p>
+                  <p className="mt-1 text-lg md:text-xl font-bold">
+                    +{formatINR(cfg.portfolio.summary.gains)}
+                  </p>
+                </div>
+                <div>
+                  <p className="text-xs opacity-70 uppercase tracking-wider">Returns</p>
+                  <p className="mt-1 text-lg md:text-xl font-bold">
+                    +{cfg.portfolio.summary.gainPercent}%
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Holdings */}
+            <h3 className="mt-10 mb-4 text-lg font-semibold text-foreground">My Holdings</h3>
+            <div className="space-y-3">
+              {cfg.portfolio.holdings.map((h, i) => {
+                const gain = h.current - h.invested;
+                const gainPct = (gain / h.invested) * 100;
+                const isUp = h.change >= 0;
+                return (
+                  <motion.div
+                    key={h.name}
+                    initial={{ opacity: 0, x: -30 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true, margin: "-40px" }}
+                    transition={{ delay: i * 0.07, duration: 0.6, ease: EASE }}
+                    whileHover={{ x: 6, scale: 1.005 }}
+                    className="rounded-2xl border border-border bg-card p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4"
+                    style={{ boxShadow: "var(--shadow-card)" }}
+                  >
+                    <div className="flex-1">
+                      <h4 className="font-semibold text-foreground">{h.name}</h4>
+                      <p className="text-xs text-muted-foreground mt-0.5">
+                        {h.units.toFixed(2)} units · NAV {formatCurrency(h.nav)}
+                      </p>
+                    </div>
+                    <div className="flex items-center gap-6">
+                      <div className="text-right">
+                        <p className="text-xs text-muted-foreground">Invested</p>
+                        <p className="font-semibold text-foreground text-sm">
+                          {formatCurrency(h.invested)}
+                        </p>
+                      </div>
+                      <div className="text-right">
+                        <p className="text-xs text-muted-foreground">Current</p>
+                        <p className="font-bold text-foreground">
+                          {formatCurrency(h.current)}
+                        </p>
+                      </div>
+                      <div
+                        className="text-right font-semibold text-sm flex items-center gap-1"
+                        style={{
+                          color: isUp ? "var(--color-success)" : "oklch(0.65 0.22 25)",
+                        }}
+                      >
+                        {isUp ? <ArrowUpRight size={14} /> : <ArrowDownRight size={14} />}
+                        <span>
+                          {isUp ? "+" : ""}
+                          {gainPct.toFixed(1)}%
+                        </span>
+                      </div>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ============== TRANSACTIONS ============== */}
+      {cfg.sections.transactions && (
+        <section id="transactions" className="py-24 px-6 bg-background">
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.8, ease: EASE }}
+              className="text-center mb-10"
+            >
+              <h2 className="text-4xl md:text-5xl font-bold text-foreground">
+                {cfg.transactions.title}
+              </h2>
+              <p className="mt-4 text-muted-foreground text-lg">
+                {cfg.transactions.subtitle}
+              </p>
+            </motion.div>
+
+            {/* Filter pills */}
+            <div className="flex justify-center gap-2 mb-8 flex-wrap">
+              {(["All", "SIP Investment", "Withdrawal"] as const).map((f) => (
+                <button
+                  key={f}
+                  onClick={() => setTxFilter(f)}
+                  className={`rounded-full px-4 py-1.5 text-xs font-semibold border transition-colors ${
+                    txFilter === f
+                      ? "border-primary text-primary-foreground"
+                      : "border-border text-muted-foreground hover:bg-secondary"
+                  }`}
+                  style={
+                    txFilter === f
+                      ? { background: "var(--gradient-cta)" }
+                      : undefined
+                  }
+                >
+                  {f}
+                </button>
+              ))}
+            </div>
+
+            <div className="rounded-2xl border border-border bg-card overflow-hidden" style={{ boxShadow: "var(--shadow-card)" }}>
+              {cfg.transactions.items
+                .filter((t) => txFilter === "All" || t.type === txFilter)
+                .map((tx, i, arr) => {
+                  const isWithdrawal = tx.type === "Withdrawal";
+                  return (
+                    <motion.div
+                      key={tx.id}
+                      initial={{ opacity: 0, y: 12 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, margin: "-30px" }}
+                      transition={{ delay: i * 0.05, duration: 0.5, ease: EASE }}
+                      className={`flex items-center gap-4 p-5 ${
+                        i < arr.length - 1 ? "border-b border-border" : ""
+                      }`}
+                    >
+                      <div
+                        className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0"
+                        style={{
+                          background: isWithdrawal
+                            ? "color-mix(in oklab, oklch(0.65 0.22 25) 15%, transparent)"
+                            : "color-mix(in oklab, var(--color-success) 15%, transparent)",
+                          color: isWithdrawal
+                            ? "oklch(0.65 0.22 25)"
+                            : "var(--color-success)",
+                        }}
+                      >
+                        {isWithdrawal ? (
+                          <ArrowUpRight size={18} />
+                        ) : (
+                          <ArrowDownRight size={18} />
+                        )}
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <p className="font-semibold text-foreground text-sm truncate">
+                          {tx.plan}
+                        </p>
+                        <p className="text-xs text-muted-foreground mt-0.5">
+                          {tx.type} · {tx.date} · {tx.id}
+                        </p>
+                      </div>
+                      <div className="text-right shrink-0">
+                        <p className="font-bold text-foreground">
+                          {isWithdrawal ? "-" : "+"}
+                          {formatCurrency(tx.amount)}
+                        </p>
+                        <p
+                          className="text-[11px] font-semibold mt-0.5 inline-flex items-center gap-1"
+                          style={{ color: txStatusColor[tx.status] }}
+                        >
+                          {tx.status === "Success" ? (
+                            <CheckCircle2 size={11} />
+                          ) : (
+                            <Clock size={11} />
+                          )}
+                          {tx.status}
+                        </p>
+                      </div>
+                    </motion.div>
+                  );
+                })}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* ============== HOW IT WORKS ============== */}
       {cfg.sections.howItWorks && (
         <section id="how-it-works" className="py-24 px-6 bg-secondary/40">
@@ -686,6 +1192,67 @@ function Index() {
                   <p className="mt-2 text-sm text-muted-foreground">{s.desc}</p>
                 </motion.div>
               ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ============== MORE / ACCOUNT ============== */}
+      {cfg.sections.more && (
+        <section id="more" className="py-24 px-6 bg-background">
+          <div className="max-w-5xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.8, ease: EASE }}
+              className="text-center mb-12"
+            >
+              <h2 className="text-4xl md:text-5xl font-bold text-foreground">
+                {cfg.more.title}
+              </h2>
+              <p className="mt-4 text-muted-foreground text-lg">{cfg.more.subtitle}</p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {cfg.more.items.map((item, i) => {
+                const Icon = ICON_MAP[item.icon] ?? User;
+                return (
+                  <motion.button
+                    key={item.title}
+                    type="button"
+                    initial={{ opacity: 0, y: 30, filter: "blur(4px)" }}
+                    whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                    viewport={{ once: true, margin: "-50px" }}
+                    transition={{ delay: i * 0.07, duration: 0.6, ease: EASE }}
+                    whileHover={{ y: -4, scale: 1.01 }}
+                    className="group flex items-center gap-4 rounded-2xl border border-border bg-card p-5 text-left transition-colors hover:border-primary"
+                    style={{ boxShadow: "var(--shadow-card)" }}
+                  >
+                    <div
+                      className="w-12 h-12 rounded-xl flex items-center justify-center text-primary-foreground shrink-0"
+                      style={{ background: "var(--gradient-cta)" }}
+                    >
+                      <Icon size={20} strokeWidth={2.2} />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="font-semibold text-foreground">{item.title}</h3>
+                      <p className="text-xs text-muted-foreground mt-0.5">{item.desc}</p>
+                    </div>
+                    {item.badge && (
+                      <span
+                        className="text-[10px] font-bold tracking-wider uppercase rounded-full px-2.5 py-1 border border-border text-muted-foreground shrink-0"
+                      >
+                        {item.badge}
+                      </span>
+                    )}
+                    <ChevronRight
+                      size={18}
+                      className="text-muted-foreground group-hover:text-primary transition-colors shrink-0"
+                    />
+                  </motion.button>
+                );
+              })}
             </div>
           </div>
         </section>
