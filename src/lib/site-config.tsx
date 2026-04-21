@@ -194,8 +194,8 @@ export const SITE_CONFIG = {
     { icon: Receipt, label: "Transactions", path: "/transactions" },
     { icon: HelpCircle, label: "How It Works", path: "/how-it-works" },
     { icon: User, label: "Account", path: "/account" },
-  ] as const,
-} as const;
+  ] as { icon: LucideIcon; label: string; path: string }[],
+};
 
 /* ╔══════════════════════════════════════════════════════════════════╗
    ║   👇  HELPERS  —  Iske niche kuch edit karne ki zaroorat nahi.    ║
