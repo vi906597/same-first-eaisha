@@ -260,6 +260,27 @@ const riskColor: Record<string, string> = {
   High: "oklch(0.65 0.22 25)",
 };
 
+// Map config string -> lucide icon component (for plans, more items)
+const ICON_MAP: Record<string, React.ComponentType<{ size?: number; className?: string; strokeWidth?: number }>> = {
+  shield: Shield,
+  leaf: Leaf,
+  trending: TrendingUp,
+  zap: Zap,
+  star: Star,
+  rocket: Rocket,
+  fileCheck: FileCheck,
+  building: Building2,
+  creditCard: CreditCard,
+  user: User,
+  receipt: Receipt,
+};
+
+const txStatusColor: Record<string, string> = {
+  Success: "var(--color-success)",
+  Processing: "var(--color-gold)",
+  Failed: "oklch(0.65 0.22 25)",
+};
+
 const container = {
   hidden: {},
   show: { transition: { staggerChildren: 0.12, delayChildren: 0.1 } },
