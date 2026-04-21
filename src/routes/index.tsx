@@ -314,6 +314,9 @@ function Index() {
   const [confirmOpen, setConfirmOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [selectedFund, setSelectedFund] = useState<string | null>(null);
+  const [selectedPlanId, setSelectedPlanId] = useState<number | null>(null);
+  const [customAmount, setCustomAmount] = useState("");
+  const [txFilter, setTxFilter] = useState<"All" | "SIP Investment" | "Withdrawal">("All");
   const [activeFundForConfirm, setActiveFundForConfirm] = useState<string>(
     `${cfg.brand.name} Smart SIP Starter`,
   );
