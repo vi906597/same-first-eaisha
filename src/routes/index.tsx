@@ -119,12 +119,13 @@ const SITE_CONFIG = {
   },
 
   // ─── Side Menu ───
+  // `target` = section id to scroll to (optional)
   menu: [
-    { icon: Home, label: "Home" },
-    { icon: TrendingUp, label: "Top Funds" },
-    { icon: Calculator, label: "SIP Calculator" },
+    { icon: Home, label: "Home", target: "top" },
+    { icon: TrendingUp, label: "Top Funds", target: "top-funds" },
+    { icon: Calculator, label: "SIP Calculator", target: "sip-calculator" },
     { icon: Briefcase, label: "My Portfolio" },
-    { icon: HelpCircle, label: "How It Works" },
+    { icon: HelpCircle, label: "How It Works", target: "how-it-works" },
     { icon: User, label: "Profile" },
   ],
 
