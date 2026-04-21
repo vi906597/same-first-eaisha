@@ -232,7 +232,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
                         setMenuOpen(false);
                         // small delay for close animation
                         setTimeout(() => {
-                          navigate({ to: item.path });
+                          navigate({ to: item.path as "/" });
                         }, 220);
                       }}
                       className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-foreground hover:bg-secondary transition-colors text-left"
