@@ -263,7 +263,7 @@ function Index() {
   return (
     <div className="min-h-screen">
       {/* ============== HERO ============== */}
-      <section className="relative min-h-screen flex items-start justify-center overflow-hidden bg-background pt-32 md:pt-40 pb-16">
+      <section id="top" className="relative min-h-screen flex items-start justify-center overflow-hidden bg-background pt-32 md:pt-40 pb-16">
         {/* Top brand bar */}
         <motion.div
           initial={{ opacity: 0, y: -16 }}
