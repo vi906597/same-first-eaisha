@@ -424,7 +424,7 @@ function Index() {
 
       {/* ============== SIP CALCULATOR ============== */}
       {cfg.sections.calculator && (
-        <section className="py-24 px-6 bg-secondary/40">
+        <section id="sip-calculator" className="py-24 px-6 bg-secondary/40">
           <div className="max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -588,7 +588,7 @@ function Index() {
 
       {/* ============== TOP FUNDS ============== */}
       {cfg.sections.funds && (
-        <section className="py-24 px-6 bg-background">
+        <section id="top-funds" className="py-24 px-6 bg-background">
           <div className="max-w-5xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -651,7 +651,7 @@ function Index() {
 
       {/* ============== HOW IT WORKS ============== */}
       {cfg.sections.howItWorks && (
-        <section className="py-24 px-6 bg-secondary/40">
+        <section id="how-it-works" className="py-24 px-6 bg-secondary/40">
           <div className="max-w-5xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -781,7 +781,20 @@ function Index() {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.1 + i * 0.05, duration: 0.4, ease: EASE }}
                     whileHover={{ x: 4 }}
-                    onClick={() => setMenuOpen(false)}
+                    onClick={() => {
+                      setMenuOpen(false);
+                      if (item.target) {
+                        // wait for menu close animation, then smooth scroll
+                        setTimeout(() => {
+                          if (item.target === "top") {
+                            window.scrollTo({ top: 0, behavior: "smooth" });
+                          } else {
+                            const el = document.getElementById(item.target);
+                            el?.scrollIntoView({ behavior: "smooth", block: "start" });
+                          }
+                        }, 280);
+                      }
+                    }}
                     className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-foreground hover:bg-secondary transition-colors text-left"
                   >
                     <item.icon size={18} className="text-primary" />
