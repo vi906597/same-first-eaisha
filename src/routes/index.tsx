@@ -11,6 +11,22 @@ import {
   User,
   LogOut,
   X,
+  Shield,
+  Leaf,
+  Zap,
+  Star,
+  Rocket,
+  IndianRupee,
+  ArrowUpRight,
+  ArrowDownRight,
+  Clock,
+  CheckCircle2,
+  CreditCard,
+  FileCheck,
+  Building2,
+  Sparkles,
+  Receipt,
+  ChevronRight,
 } from "lucide-react";
 
 /* ╔══════════════════════════════════════════════════════════════════╗
