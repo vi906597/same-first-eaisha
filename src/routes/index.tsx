@@ -67,8 +67,12 @@ const SITE_CONFIG = {
   // ─── Sections on/off ───
   sections: {
     features: true,
+    dashboard: true,
     calculator: true,
     funds: true,
+    portfolio: true,
+    transactions: true,
+    more: true,
     howItWorks: true,
     footer: true,
   },
@@ -126,6 +130,75 @@ const SITE_CONFIG = {
     ],
   },
 
+  // ─── Dashboard / SIP Plans ───
+  dashboard: {
+    title: "Choose Your SIP Plan",
+    subtitle: "Pre-built plans for every goal — start from just ₹100/month",
+    greeting: "Hello, Investor 👋",
+    quickStats: [
+      { label: "Total Invested", value: "₹0" },
+      { label: "Current Value", value: "₹0" },
+      { label: "Active SIPs", value: "0" },
+    ],
+    plans: [
+      { id: 1, name: "Stability SIP", amount: 100, returns: "8-12%", risk: "Low", icon: "shield", popular: false, color: "var(--color-success)" },
+      { id: 2, name: "Starter SIP", amount: 500, returns: "12-15%", risk: "Low", icon: "leaf", popular: false, color: "var(--color-success)" },
+      { id: 3, name: "Growth SIP", amount: 1000, returns: "15-18%", risk: "Medium", icon: "trending", popular: true, color: "var(--color-gold)" },
+      { id: 4, name: "Power SIP", amount: 2500, returns: "18-22%", risk: "Medium-High", icon: "zap", popular: false, color: "var(--color-gold)" },
+      { id: 5, name: "Premium SIP", amount: 5000, returns: "20-25%", risk: "High", icon: "star", popular: false, color: "oklch(0.65 0.22 25)" },
+      { id: 6, name: "Booster SIP", amount: 10000, returns: "23-28%", risk: "High", icon: "rocket", popular: false, color: "oklch(0.65 0.22 25)" },
+    ],
+    customPlaceholder: "Or enter custom amount (₹100+)",
+    investCta: "Invest Now",
+  },
+
+  // ─── Portfolio (demo data) ───
+  portfolio: {
+    title: "My Portfolio",
+    subtitle: "Track your investments and watch them grow",
+    summary: {
+      totalValue: 245680,
+      invested: 180000,
+      gains: 65680,
+      gainPercent: 36.5,
+      todayChange: 2840,
+      todayChangePercent: 1.17,
+    },
+    holdings: [
+      { name: "Growth SIP", invested: 60000, current: 84200, units: 1245.8, nav: 67.62, change: 2.4 },
+      { name: "Premium SIP", invested: 75000, current: 102480, units: 982.4, nav: 104.31, change: 1.8 },
+      { name: "Starter SIP", invested: 30000, current: 38500, units: 654.2, nav: 58.85, change: -0.6 },
+      { name: "Stability SIP", invested: 15000, current: 20500, units: 320.1, nav: 64.04, change: 0.9 },
+    ],
+  },
+
+  // ─── Transaction History (demo) ───
+  transactions: {
+    title: "Recent Transactions",
+    subtitle: "All your SIP investments and withdrawals in one place",
+    items: [
+      { id: "TXN-2410001", type: "SIP Investment", plan: "Growth SIP", amount: 1000, date: "5 Apr 2026", status: "Success" },
+      { id: "TXN-2403021", type: "SIP Investment", plan: "Premium SIP", amount: 5000, date: "5 Apr 2026", status: "Success" },
+      { id: "TXN-2403020", type: "SIP Investment", plan: "Starter SIP", amount: 500, date: "5 Mar 2026", status: "Success" },
+      { id: "TXN-2402019", type: "Withdrawal", plan: "Stability SIP", amount: 2000, date: "12 Feb 2026", status: "Processing" },
+      { id: "TXN-2402018", type: "SIP Investment", plan: "Growth SIP", amount: 1000, date: "5 Feb 2026", status: "Success" },
+    ],
+  },
+
+  // ─── More / Account ───
+  more: {
+    title: "Account & Settings",
+    subtitle: "Manage your profile, KYC, bank details and cards",
+    items: [
+      { icon: "fileCheck", title: "Complete KYC", desc: "Verify your identity using Aadhaar & PAN", badge: "Pending" },
+      { icon: "building", title: "Bank Accounts", desc: "Manage linked bank accounts for SIPs", badge: "1 Linked" },
+      { icon: "creditCard", title: "Eaisha Card", desc: "Apply for the Zypeus prepaid investment card", badge: "Apply" },
+      { icon: "user", title: "Profile Settings", desc: "Update name, email, phone & preferences", badge: "" },
+      { icon: "shield", title: "Security", desc: "Password, 2FA and device sessions", badge: "" },
+      { icon: "receipt", title: "Tax Statements", desc: "Download capital gains reports for ITR filing", badge: "FY 2025-26" },
+    ],
+  },
+
   // ─── Footer ───
   footer: {
     links: ["About", "Features", "Calculator", "Top Funds", "Contact"],
@@ -138,11 +211,13 @@ const SITE_CONFIG = {
   // `target` = section id to scroll to (optional)
   menu: [
     { icon: Home, label: "Home", target: "top" },
+    { icon: Sparkles, label: "Dashboard", target: "dashboard" },
     { icon: TrendingUp, label: "Top Funds", target: "top-funds" },
     { icon: Calculator, label: "SIP Calculator", target: "sip-calculator" },
-    { icon: Briefcase, label: "My Portfolio" },
+    { icon: Briefcase, label: "My Portfolio", target: "portfolio" },
+    { icon: Receipt, label: "Transactions", target: "transactions" },
     { icon: HelpCircle, label: "How It Works", target: "how-it-works" },
-    { icon: User, label: "Profile" },
+    { icon: User, label: "Account", target: "more" },
   ],
 
   // ─── SEO ───
